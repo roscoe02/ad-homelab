@@ -1,0 +1,46 @@
+#cloud-config
+# Ubuntu Server autoinstall answers for TKT01 (the ticketing VM).
+# Values in double curly braces are filled in by scripts\06-build-ticketing.ps1; the filled-in copy
+# goes to unattend\out\ (excluded from git). The installer finds this file on a small ISO labeled CIDATA.
+autoinstall:
+  version: 1
+  locale: en_US.UTF-8
+  keyboard:
+    layout: us
+  timezone: America/Chicago
+  # Static IP, like every server in the lab. DNS points at the domain controller.
+  network:
+    version: 2
+    ethernets:
+      lan:
+        match:
+          driver: hv_netvsc        # the Hyper-V virtual network card
+        set-name: eth0
+        addresses: [10.10.10.20/24]
+        routes:
+          - to: default
+            via: 10.10.10.1
+        nameservers:
+          addresses: [10.10.10.10]
+          search: [corp.roscoe.internal]
+  storage:
+    layout:
+      name: direct               # one simple partition using the whole disk
+  identity:
+    hostname: tkt01
+    username: labadmin
+    password: "{{PASSWORD_HASH}}"   # SHA-512 hash, not the password itself
+  ssh:
+    install-server: true
+    allow-pw: false               # key-only SSH: only the host's lab key can log in remotely
+    authorized-keys:
+      - "{{SSH_PUBKEY}}"
+  packages:
+    - linux-cloud-tools-virtual  # Hyper-V integration (lets Hyper-V Manager show the VM's IP)
+  late-commands:
+    # Lab shortcut: passwordless sudo for labadmin, so setup scripts can run over SSH.
+    # Safe enough here because SSH only accepts the lab key (allow-pw: false above).
+    - echo 'labadmin ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/90-labadmin
+    - chmod 440 /target/etc/sudoers.d/90-labadmin
+  # Power off when done so the host can eject the installer before the first real boot.
+  shutdown: poweroff

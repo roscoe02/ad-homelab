@@ -1,0 +1,16 @@
+FirstName,LastName,Department,Title,Groups
+Avery,Quinlan,IT,Help Desk Technician,SG-IT;SG-HelpDesk
+Jordan,Pembrook,IT,Systems Administrator,SG-IT
+Riley,Ashcombe,IT,Help Desk Technician,SG-IT;SG-HelpDesk
+Morgan,Vexley,Sales,Account Executive,SG-Sales
+Casey,Thornbury,Sales,Sales Manager,SG-Sales;SG-Managers
+Taylor,Brightwell,Sales,Sales Representative,SG-Sales
+Jamie,Okonkwo-Hale,Sales,Sales Representative,SG-Sales
+Drew,Marchetti,Sales,Account Executive,SG-Sales
+Skyler,Fenwick,HR,HR Generalist,SG-HR
+Parker,Lindqvist,HR,HR Manager,SG-HR;SG-Managers
+Reese,Calloway,HR,Recruiter,SG-HR
+Emerson,Duvall,IT,Network Technician,SG-IT
+Rowan,Haverford,Sales,Sales Representative,SG-Sales
+Sage,Whitlock,HR,Payroll Specialist,SG-HR
+Quinn,Abernathy,Sales,Sales Representative,SG-Sales

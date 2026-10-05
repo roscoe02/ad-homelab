@@ -1,0 +1,22 @@
+# Lab passwords: local only, never commit
+lab-secrets.txt
+*.secrets.*
+
+# Generated answer files contain passwords
+unattend/out/
+
+# VM files and installers live outside the repo, but just in case
+*.vhdx
+*.avhdx
+*.iso
+*.vmcx
+*.vmrs
+
+# Lab SSH key for TKT01 (private key: never commit)
+lab-ssh/
+
+# Personal planning prompt (name, school, private tracker link): keep local
+desktop-ad-lab-prompt.md
+
+# Personal interview prep: local only, never commit
+private/

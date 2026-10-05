@@ -1,0 +1,3 @@
+# Linux files must keep LF line endings or bash/cloud-init can't read them
+*.sh text eol=lf
+*.yaml text eol=lf
