@@ -159,3 +159,7 @@ Checkpoints: `01-OS-installed` → … → `05-tickets-complete` on each VM, for
 - **AD Certificate Services**, then HTTPS for GLPI and **LDAPS** so GLPI users can sign in with their AD accounts (Server 2025 DCs reject unencrypted LDAP binds by default, which is why I didn't connect GLPI to AD over plain LDAP).
 - A second domain controller to practice replication and FSMO roles.
 - Fine-grained password policy for admin accounts, LAPS for local admin passwords, and a basic backup/restore of AD.
+
+## Credits
+
+Made with the help of [Claude Code](https://claude.com/claude-code), Anthropic's AI coding agent.
